@@ -65,6 +65,12 @@ void main(List<String> args) {
       hasCommand = true;
     }
 
+    if (results.wasParsed('name')) {
+      final moduleName = results['name'] as String;
+      ScaffoldCommand().execute(moduleName);
+      hasCommand = true;
+    }
+
     if (!hasCommand) {
       showHelp();
     }
