@@ -2,18 +2,20 @@ import 'dart:io';
 
 class DependecyUtils {
   static final Map<String, String> dependencies = {
-    'dio': '^5.3.2',
-    'flutter_mobx': '^2.0.6+5',
-    'flutter_modular': '^5.0.3',
-    'json_annotation': '^4.9.0',
+    'shared_preferences': '^2.2.0',
     'mobx': '^2.2.0',
+    'json_annotation': '^4.9.0',
+    'dio': '^5.3.2',
+    'flutter_secure_storage': '^9.2.2',
+    'flutter_modular': '^5.0.3',
+    'flutter_mobx': '^2.0.6+5',
   };
 
   static final Map<String, String> devDependencies = {
+    'test': '^1.16.9',
+    'mobx_codegen': '^2.3.0',
     'build_runner': '^2.4.6',
     'json_serializable': '^6.8.0',
-    'mobx_codegen': '^2.3.0',
-    'test': '^1.16.9',
   };
 
   static bool addDependencies() {

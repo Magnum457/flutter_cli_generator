@@ -1,11 +1,11 @@
 {
   "roots": [
-    "flutter_scaffold_cli"
+    "fscaffold"
   ],
   "packages": [
     {
-      "name": "flutter_scaffold_cli",
-      "version": "1.0.0",
+      "name": "fscaffold",
+      "version": "1.0.3",
       "dependencies": [
         "args",
         "path",

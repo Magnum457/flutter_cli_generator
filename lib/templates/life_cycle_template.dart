@@ -1,0 +1,48 @@
+class LifeCycleTemplate {
+  // Controller Life Cycle Mixin
+  static const String controllerLifeCycle = '''
+    import 'package:flutter_modular/flutter_modular.dart';
+
+    mixin ControllerLifeCycle implements Disposable {
+      void onInit([Map<String, dynamic>? params]) {
+        return;
+      }
+
+      void onReady() {
+        return;
+      }
+
+      @override
+      void dispose() {
+        return;
+      }
+    }
+''';
+
+  // Page Life Cycle State
+  static const String pageLifeCycleState = '''
+    import 'package:flutter/material.dart';
+    import 'package:flutter_modular/flutter_modular.dart';
+
+    import 'controller_life_cycle.dart';
+
+    abstract class PageLifeCycleState<C extends ControllerLifeCycle, P extends StatefulWidget> extends State<P> {
+      final C controller = Modular.to.get<C>();
+
+      Map<String, dynamic>? get params => null;
+
+      @override
+      void initState() {
+        super.initState();
+        controller.onInit(params);
+        WidgetBinding.instance.addPostFrameCallback((_) => controller.onReady());
+      }
+
+      @override
+      void dispose() {
+        controller.dispose();
+        super.dispose();
+      }
+    }
+''';
+}

@@ -278,7 +278,7 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "flutter_scaffold_cli",
+      "name": "fscaffold",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
@@ -286,7 +286,7 @@
   ],
   "generator": "pub",
   "generatorVersion": "3.9.2",
-  "flutterRoot": "file:///home/magno/fvm/versions/3.35.4",
-  "flutterVersion": "3.35.4",
+  "flutterRoot": "file:///home/magno/fvm/versions/3.19.5",
+  "flutterVersion": "3.35.6",
   "pubCache": "file:///home/magno/.pub-cache"
 }

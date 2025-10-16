@@ -2,6 +2,7 @@
 
 import 'package:args/args.dart';
 import '../lib/commands/init_command.dart';
+import '../lib/commands/config_command.dart';
 import '../lib/commands/scaffold_command.dart';
 
 void main(List<String> args) {
@@ -18,10 +19,22 @@ void main(List<String> args) {
       help: 'Inicializa as dependências do projeto',
     )
     ..addFlag(
+      'config',
+      abbr: 'c',
+      negatable: false,
+      help: 'Configura a infraestrutura do projeto',
+    )
+    ..addFlag(
       'help',
       abbr: 'h',
       negatable: false,
       help: 'Ajuda',
+    )
+    ..addFlag(
+      'version',
+      abbr: 'v',
+      negatable: false,
+      help: 'Exibe a versão do CLI',
     );
 
   void showHelp() {
@@ -34,6 +47,7 @@ void main(List<String> args) {
       Opções:
       -n, --name <nome>   Nome do módulo a ser criado
       -i, --init          Inicializa as dependências do projeto
+      -c, --config        Configura a infraestrutura do projeto
       -h, --help          Ajuda
       ''');
   }
@@ -41,13 +55,13 @@ void main(List<String> args) {
   try {
     final results = parser.parse(args);
 
-    if (results['help'] as bool) {
+    if (results.wasParsed('help')) {
       showHelp();
       return;
     }
 
-    if (results['version'] as bool) {
-      print('Flutter Scaffold CLI v1.0.0');
+    if (results.wasParsed('version')) {
+      print('Flutter Scaffold CLI v1.0.3');
       return;
     }
 
@@ -62,6 +76,11 @@ void main(List<String> args) {
 
     if (results['init'] as bool) {
       InitCommand().execute();
+      hasCommand = true;
+    }
+
+    if (results['config'] as bool) {
+      ConfigCommand().execute();
       hasCommand = true;
     }
 
