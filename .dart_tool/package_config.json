@@ -286,7 +286,7 @@
   ],
   "generator": "pub",
   "generatorVersion": "3.9.2",
-  "flutterRoot": "file:///home/magno/fvm/versions/3.19.5",
+  "flutterRoot": "file:///home/magno/.asdf/installs/flutter/3.19.5",
   "flutterVersion": "3.35.6",
   "pubCache": "file:///home/magno/.pub-cache"
 }

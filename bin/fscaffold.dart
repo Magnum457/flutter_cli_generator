@@ -61,7 +61,7 @@ void main(List<String> args) {
     }
 
     if (results.wasParsed('version')) {
-      print('Flutter Scaffold CLI v1.0.3');
+      print('Flutter Scaffold CLI v0.1.0');
       return;
     }
 

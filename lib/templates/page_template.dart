@@ -5,10 +5,19 @@ class PageTemplate {
       import 'package:flutter/material.dart';
       import 'package:flutter_mobx/flutter_mobx.dart';
       import 'package:flutter_modular/flutter_modular.dart';
-      import '${snakeCaseName}_store.dart';
+
       import '../../core/life_cycle/page_life_cycle_state.dart';
 
-      class ${pascalCaseName}Page extends PageLifeCycleState<${pascalCaseName}Store, ${pascalCaseName}Page> {
+      import '${snakeCaseName}_store.dart';
+      
+      class ${pascalCaseName}Page extends StatefulWidget {
+        const ${pascalCaseName}Page({Key? key}) : super(key: key);
+        
+        @override
+        State<${pascalCaseName}Page> createState() => _${pascalCaseName}PageState();
+      }
+
+      class _${pascalCaseName}PageState extends PageLifeCycleState<${pascalCaseName}Store, ${pascalCaseName}Page> {
         @override
         void dispose() {
           super.dispose();

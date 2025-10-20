@@ -13,7 +13,7 @@ class ModelTemplate {
         required this.id,
       });
 
-      factory ${pascalCaseName}.fromJson(Map<String, dynamic> json) => _\$${pascalCaseName}ModelFromJson(json);
+      factory ${pascalCaseName}Model.fromJson(Map<String, dynamic> json) => _\$${pascalCaseName}ModelFromJson(json);
 
       Map<String, dynamic> toJson() => _\$${pascalCaseName}ModelToJson(this);
     }

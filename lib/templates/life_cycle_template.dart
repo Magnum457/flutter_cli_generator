@@ -27,7 +27,7 @@ class LifeCycleTemplate {
     import 'controller_life_cycle.dart';
 
     abstract class PageLifeCycleState<C extends ControllerLifeCycle, P extends StatefulWidget> extends State<P> {
-      final C controller = Modular.to.get<C>();
+      final C controller = Modular.get<C>();
 
       Map<String, dynamic>? get params => null;
 
@@ -35,7 +35,7 @@ class LifeCycleTemplate {
       void initState() {
         super.initState();
         controller.onInit(params);
-        WidgetBinding.instance.addPostFrameCallback((_) => controller.onReady());
+        WidgetsBinding.instance.addPostFrameCallback((_) => controller.onReady());
       }
 
       @override

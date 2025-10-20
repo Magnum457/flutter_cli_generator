@@ -1,7 +1,7 @@
 class ServiceTemplate {
   static String generateInterface(String pascalCaseName, String snakeCaseName) {
     return '''
-    import '../models/${snakeCaseName}_model.dart';
+    import '../../models/${snakeCaseName}/${snakeCaseName}_model.dart';
 
     abstract class I${pascalCaseName}Service {
       Future<${pascalCaseName}Model> get${pascalCaseName}();
@@ -21,8 +21,8 @@ class ServiceTemplate {
       String pascalCaseName, String camelCaseName, String snakeCaseName) {
     return '''
     import '${snakeCaseName}_service.dart';
-    import '../models/${snakeCaseName}_model.dart';
-    import '../repositories/${snakeCaseName}_repository.dart';
+    import '../../models/${snakeCaseName}/${snakeCaseName}_model.dart';
+    import '../../repositories/${snakeCaseName}/${snakeCaseName}_repository.dart';
 
     class ${pascalCaseName}Service implements I${pascalCaseName}Service {
       final I${pascalCaseName}Repository _${camelCaseName}Repository;
@@ -32,9 +32,9 @@ class ServiceTemplate {
       }) : _${camelCaseName}Repository = ${camelCaseName}Repository;
     
       @override
-      Future<${pascalCaseName}Model> get${pascalCaseName}(String id) async {
+      Future<${pascalCaseName}Model> get${pascalCaseName}() async {
         // Pode adicionar lógica de cache aqui
-        return await _${camelCaseName}Repository.get${pascalCaseName}(id);
+        return await _${camelCaseName}Repository.get${pascalCaseName}();
       }
 
       @override

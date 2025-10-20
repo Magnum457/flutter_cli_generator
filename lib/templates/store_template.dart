@@ -8,12 +8,12 @@ class StoreTemplate {
       import 'package:mobx/mobx.dart';
       import 'package:flutter_modular/flutter_modular.dart';
       
-      import '../../services/${snakeCaseName}_service.dart';
+      import '../../${snakeCaseName}/services/${snakeCaseName}_service.dart';
       import '../../core/life_cycle/controller_life_cycle.dart';
 
       part '${snakeCaseName}_store.g.dart';
 
-      class ${pascalCaseName}Store = _${pascalCaseName}StoreBase with \$${pascalCaseName}Store;
+      class ${pascalCaseName}Store = _${pascalCaseName}StoreBase with _\$${pascalCaseName}Store;
 
       abstract class _${pascalCaseName}StoreBase with Store, ControllerLifeCycle {
         final I${pascalCaseName}Service _${camelCaseName}Service;
@@ -21,16 +21,16 @@ class StoreTemplate {
         _${pascalCaseName}StoreBase({
           required I${pascalCaseName}Service ${camelCaseName}Service,
         }) : _${camelCaseName}Service = ${camelCaseName}Service;
-      }
+      
+        @override
+        void onReady() {
+          super.onReady();
+        }
 
-      @override
-      void onReady() {
-        super.onReady();
-      }
-
-      @override
-      void dispose() {
-        super.dispose();
+        @override
+        void dispose() {
+          super.dispose();
+        }
       }
 ''';
   }
